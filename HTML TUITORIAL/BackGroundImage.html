@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather_Application</title>
+    <style>
+        body{
+            background-image: url(background.jpg) ; background-size: 100% 100%; background-repeat: no-repeat; background-attachment: fixed;
+        }
+    </style>
+</head>
+<body>
+    <h1 style="color: white; text-align: center;">WELCOME TO THE WEATHER APPLICATION</h1>
+    <br><br>
+    <form action="" method="get" target="_blank">
+        <label for="cname"  style="color: white;font-size: 30px;">Enter your City here:</label><br>
+        <input type="text" name="" id="cname" placeholder="Enter your City name" style="font-size: 20px;">
+        <br><br>
+        <label for="dname"  style="color: white; font-size: 30px;">Enter your District here:</label><br>
+        <input type="text" name="" id="dname" placeholder="Enter your District name" style="font-size: 20px;">
+        <br><br>
+        <p style="color: white; font-size: 30px;">Choose Your County</p>
+        <select name="Editors" id="" style="font-size: large;">
+            <option value="India">India</option>
+            <option value="Others">Others</option>
+        </select>
+        <br><br>
+        <button type="reset" style="font-size: large;">Reset</button>
+        <button type="submit" onclick="document.location='WeatherTable.html'" style="font-size: large;">Submit</button>
+    </form>
+</body>
+</html>
