@@ -1,0 +1,92 @@
+/*  Height: Sets the vertical size of an element.
+    Width: Sets the horizontal size of an element.
+    Border: Creates a line around the element’s edge.
+    Padding: Space between the content and the border.
+    Margin: Space outside the element, between it and others. */
+div{
+    background-color: black;
+    color: white;
+
+    /* Set height */
+    height: 50px;
+
+    /* Set width */
+    width: 500px;
+
+    /* Set Border */
+    border-width: 2px;
+    border-style: dotted;
+    border-color: red;
+    /* Short-hand of border */
+    /* border: 2px solid red; */
+
+    /* Set padding */
+    padding-left: 10px;
+    padding-right: 20px;
+    padding-top: 30px;
+    padding-bottom: 40px;
+    /* Short hand of Padding -> top->right->bottom->left */
+    /* padding: 1px 2px 3px 4px; */
+
+    /* Set Marging */
+    margin-top: 10px;
+    margin-bottom: 20px;
+    margin-left: 30px;
+    margin-right: 40px;
+    /* margin: 1px 2px 3px 4px; */
+}
+
+#practice1{
+    background-color: red;
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+    margin-left: 100px;
+    border-style: double;
+    border-width: 5px;
+    border-color: black;
+}
+#practice2{
+    background-color: orange;
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+    margin-left: 100px;
+    border-style: double;
+    border-width: 5px;
+    border-color: black;
+}
+#practice3{
+    background-color: green;
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+    margin-left: 100px;
+    border-style: double;
+    border-width: 5px;
+    border-color:black;
+}
+.contanier{
+    margin-left: 500px;
+    margin-top: 50px;
+    background-color: white;
+    border: 5px solid black;
+    padding: 0%;
+    width: 350px;
+    height: 730px;
+}
+.heading{
+    background-color: white;
+    color: red;
+    text-transform: uppercase;
+    text-align: center;
+    font-weight: bolder;
+    font-size: x-large;
+    font-family: 'Times New Roman', Times, serif;
+    text-decoration: green wavy underline;
+    height: auto;
+    width: 250px;
+    border-color: black;
+    border-style: solid;
+    border-radius: 30%;
+}
