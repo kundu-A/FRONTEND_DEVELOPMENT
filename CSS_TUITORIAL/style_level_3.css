@@ -1,0 +1,67 @@
+/*Basically by default display property of div is block - means occupaies full width or height*/
+div{
+    background-color: pink;
+    /* Here we define the display property as inline */
+    display: inline;
+}
+/*Basically by default display property of button is inline - means it occupaies only content wise space not all width or height*/
+/* In inline property only left and right margin will be applied not in top and buttom */
+button{
+    color: white;
+    background-color:blue;
+    /* Here we define the display property as block */
+    display: block;
+    margin: 10px;
+}
+#container{
+    margin-top: 50px;
+    background-color: whitesmoke;
+    display: block;
+}
+/* If we want to set margin/padding/etc with inline property we have to use inline-block*/
+#box1{
+    /* This is called Alpha channel - a stands for alpha. In alpha we can set opacity (0 to 1). 0 means nno color will be visible , 1 means brightest version of that color will be visible and we can set 0.25,0.5,0.6, and so on And depending upon this value color's density will be changed. */
+    background-color:rgba(0, 0, 255, 1);
+    margin: 25px;
+    padding: 25px;
+    width: 100px;
+    height: 100px;
+    display: inline-block;
+}
+#box2{
+    background-color: rgba(255, 0, 0, 0.5);
+    margin: 25px;
+    padding: 25px;
+    width: 100px;
+    height: 100px;
+    display: inline-block;
+}
+#box3{
+    background-color: rgba(0, 255, 0, 0);
+    margin: 25px;
+    padding: 25px;
+    width: 100px;
+    height: 100px;
+    display: none;
+}
+#box4{
+    background-color: rgba(0, 255, 0, 0.25);
+    margin: 25px;
+    padding: 25px;
+    width: 100px;
+    height: 100px;
+    display: inline-block;
+}
+/* In short:
+    display:block - occupaies full width and height or we can explecitly mention the height and width.
+
+    display:inline - occupaies only the content related space and we can't set margin/padding and if we do then only letf and right will be applied not top and buttom.
+
+    display:inline-block - here inline and block both property will be applied , means we can set margin/padding at the time of inline display
+
+    display:none - when we want to remove something then we apply this property. After that all the height and weight will be removed from the page.
+*/
+
+/* NOTE::
+visibility:hidden vs display:none -> in hidden property only the content will be removed but it will reserved it's height and weight. And after it's height and weight next element will starts. But in none property content and as well as it's height and weight also removed it doesn't reserve.
+*/

@@ -90,3 +90,11 @@ div{
     border-style: solid;
     border-radius: 30%;
 }
+
+.display-property-block{
+    background-color: white;
+    height: 100px;
+    width: 100px;
+    display: block;
+    border-radius: 50%;
+}

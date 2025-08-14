@@ -1,0 +1,46 @@
+/* Position::
+1.static -> default position (top,buttom,left,right and z-index properites have no effect).
+2.relative -> element is relative to itself (top,buttom,left,right and z-index will work).
+3.absolute -> positioned relative to its closest positioned ancester.
+4.fixed -> positioned relative to browser. (remove from flow)
+5.sticky -> positioned based on user's scroll position.
+*/
+div{
+    height: 100px;
+    width: 100px;
+    background-color: aquamarine;
+    border: 2px solid black;
+    display: inline-block;
+}
+#box1{
+    /* This is default setting, if we apply top,buttom,left,right and z-index it will have no effect */
+    position: static;
+    background-color: red;
+}
+#box2{
+    /* Here we can apply all those properties and those will produce result*/
+    position: relative;
+    top:10px;
+    left:25px;
+    background-color: blue;
+}
+#box3{
+    /* Closest ancester of this div is body tag.So it changes it's position according to body tag. top:10px , means my whole screen act as body and from the top of the window it will shift 10 pixel.*/
+    position: absolute;
+    top:700px;
+    left: 20px;
+    background-color: green;
+    
+}
+#box4{
+    /* It's changes according to scroll position */
+    background-color: gray;
+    position: sticky;
+    bottom:0px;
+}
+#box5{
+    /* It's changes according to the document */
+    position: fixed;
+    top:0px;
+    right: 0px
+}

@@ -1,0 +1,34 @@
+/* Z-Index
+z-index:0 means auto , it's a default setting.
+z-index:1/2/3/.... means overlaps on others. While increasing the number , priority wil increase.
+z-index:-1/-2/... means underlaps on others.
+For position:static -> it will nor work, and for other it wil works.
+*/
+div{
+    height: 100px;
+    width: 100px;
+    background-color: aquamarine;
+    border: 2px solid black;
+    display: inline-block;
+}
+#box1{
+    background-color: red;
+    position: relative;
+}
+#box2{
+    background-color:black;
+    position: relative;
+    top: 10px;
+    left: 25px;
+    z-index: 1;
+}
+#box3{
+    background-color: blue;
+    position: absolute;
+}
+#box4{
+    background-color: green;
+    position: fixed;
+    top: 0px;
+    z-index: -3;
+}

@@ -1,0 +1,26 @@
+div{
+    height: 100px;
+    width: 100px;
+}
+body{
+    background-image: url(Media/sardar-kamran-khan-jYF1kn3eyHo-unsplash.jpg);
+    background-size: cover;
+}
+#box1{
+    margin: 20px;
+    background-image: url(Media/zac-durant-_6HzPU9Hyfg-unsplash.jpg);
+    /* To set the image properly we have to follow the background-size property and reduce the pixelet problem.*/
+    background-size: cover;
+    display: inline-block;
+}
+#box2{
+    background-color: black;
+    margin: 20px;
+    background-image:url(Media/zen-summer-lk3F07BN8T8-unsplash.jpg);
+    /* To set the image properly we have to follow the background-size property and reduce the pixelet problem.But the problem is here the high priority is image visibility and it try tp show that image within the given area, that's why it repeat the same image at the remainig place.*/
+    background-size: contain;
+    /* And by using this property we can restrict the repeatation of the image */
+    background-repeat: no-repeat;
+    display: inline-block;
+}
+/* But in maximum cases we have to follow background-size:cover */
