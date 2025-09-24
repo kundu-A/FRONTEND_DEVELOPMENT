@@ -1,0 +1,512 @@
+/************************************** Home Page ****************************************/
+h2 {
+    position: relative; /* Establishes a positioning context so child absolute elements (like ::after) are positioned relative to the h2. */
+    display: inline-block; /* Makes the h2 behave like an inline-level box but keep width/height and allow positioned children. */
+    margin-bottom: 40px; /* Adds 40px space below the h2 (separates it from content that follows). */
+    text-align: center; /* Centers inline content inside the h2 (useful if h2 has multiple inline children or for consistent alignment). */
+    color: #222; /* Sets the text color to a very dark gray (hex color). */
+    font-size: 32px;
+}
+/* This is a CSS pseudo-element selector. It doesn’t select something already in your HTML. Instead, it creates a virtual element that appears inside every <h2> tag, after its text/content. */
+h2::after {
+    content: ""; /* Required for pseudo-elements — creates an empty element that can be styled (no visible text). */
+    position: absolute;/* Positions the pseudo-element absolutely relative to the nearest positioned ancestor (the h2, because it is relative). */
+    left: 50%; /* Places the left edge of the pseudo-element at 50% of the h2's width (halfway across). */
+    bottom: -10px;  /* space below text */ /* Moves the pseudo-element 10px below the bottom of the h2; negative value pushes it downward. */
+    transform: translateX(-50%);  /* Shifts the pseudo-element left by half its own width so it is horizontally centered under the h2. */
+    width: 60px; 
+    height: 4px; 
+    background-color: #f4b400; /* golden color */
+    border-radius: 2px;
+}
+html {
+  scroll-behavior: smooth; /* Enables smooth scrolling for in-page anchor links and programmatic scrolls (browser support required). */
+}
+body{
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+/********************************** Navbar ***********************************************/
+.navbar{
+    display: flex; /* Turns the navbar into a flex container so its children (logo and nav-links) are laid out on one line by default. */
+    justify-content: space-between; /* Places first child at start and last child at end with space between (logo left, links right). */
+    align-items: center; /* Vertically centers the navbar's children within the navbar's height. */
+    padding: 15px 40px; /* Adds 15px top/bottom and 40px left/right internal spacing inside the navbar. */
+    background-color: #222;
+}
+.navbar .logo{
+    color: #fff;
+    font-size: 20px;
+    font-weight: bold;
+}
+.navbar .nav-links{
+    list-style: none; /* Removes default bullet points from the list. */
+    display: flex; /* Turns the list into a flex container so list items sit horizontally. */
+    gap: 20px; /* Adds 20px space between direct children (the <li> elements). */
+}
+.navbar .nav-links a{
+    color: white;
+    text-decoration: none; /* Removes the default underline from links. */
+    font-size: 16px;
+}
+/* Selects the same links but only when hovered by the mouse. */
+.navbar .nav-links a:hover{
+    color: #f4b400; ; /* Changes the link color on hover to the same golden color used for the h2 underline (visual affordance). */
+}
+/********************************** Hero Section *****************************************/
+
+/* The hero section is the very first, top section of a webpage that visitors see when the page loads. It usually covers the full width (and often most of the height) of the screen.
+It’s meant to immediately grab attention and quickly tell people:
+1.What the website is about
+2.Why they should care
+3.What action they should take next (like clicking a button, signing up, or exploring more). */
+
+.hero{
+    height: 100vh; /* Makes the hero section take up the full height of the browser viewport (100% of visible screen height). */
+    background:url(image/Food.jpg) center/cover no-repeat;  /* Sets a background image, centers it, makes it cover the whole section, and prevents tiling. */
+    display: flex;  /* Turns the hero into a flex container so we can easily center content inside it. */
+    justify-content: center;  /* Horizontally centers the content inside the hero (hero-content div). */
+    align-items: center;  /* Vertically centers the content inside the hero (hero-content div). */
+    color: white; /* Sets the default text color of everything inside hero to white (good for contrast over the background image). */
+    text-align: center; /* Centers text content inside hero so headings, paragraphs, and buttons are aligned to the middle. */
+    position: relative;  /* Makes the hero a positioned element so its ::before overlay can be absolutely positioned relative to it. */
+}
+.hero::before{
+    content: ""; /* Required for pseudo-elements to render; empty string means no visible text, just a box. */
+    position: absolute; /* Positions this overlay absolutely inside the hero container. */
+    top: 0; /* Sets the overlay’s top edge to the very top of the hero section. */
+    left: 0; /* Sets the overlay’s left edge to the very left of the hero section. */
+    height: 100%; /* Makes the overlay stretch to the full height of the hero section. */
+    width: 100%; /* Makes the overlay stretch to the full width of the hero section. */
+    background-color: rgba(0, 0, 0, 0.5); /* Adds a semi-transparent black overlay (50% opacity) to darken the background image. */
+}
+.hero-content{
+    position: relative; /* Positions it relative so the z-index works correctly above the overlay. */
+    z-index: 1; /* Places the content above the ::before overlay so the text and button are visible and not hidden. */
+}
+.hero h1{
+    font-size: 48px; /* Makes the heading large (48px) for a strong hero section title. */
+    margin-bottom: 15px; /* Adds 15px space below the heading before the paragraph. */
+}
+.hero p{
+    font-size: 20px; /* Sets the paragraph text to 20px, making it readable but smaller than the heading. */
+    margin-bottom: 20px; /* Adds 20px space below the paragraph before the button. */
+}
+.btn{
+    background-color: #f4b400; /* Gives the button a golden background color to make it stand out. */ 
+    padding: 10px 20px; /* Adds 10px top/bottom and 20px left/right padding inside the button for spacing. */
+    color: #222; /* Sets the button text color to dark gray (#222) for good contrast on golden background. */
+    text-decoration: none; /* Removes the underline from the link so it looks like a button. */
+    font-weight: bold; /* Makes the button text bold so it appears more prominent. */
+    border-radius: 5px; /* Rounds the corners of the button slightly for a softer look. */
+    transition: 0.3s; /* The color and background-color changes will animate smoothly when you hover. */
+}
+.btn:hover{
+    background-color: #fff; /* Changes the background to white when hovering. */
+    color: #f4b400; /* Changes the text color to golden when hovering, inverting the original color scheme. */
+}
+/************************************About Us********************************************/
+.about-multi {
+    padding: 60px 40px; /* Adds 60px space top/bottom and 40px left/right inside the section. */
+    background-color: #f9f9f9; /* Gives the section a very light gray background color. */
+    text-align: center; /* Centers the text content inside this section. */
+}
+.about-container {
+    display: grid; /* Turns this container into a CSS grid layout. */
+    grid-template-columns: 1fr 2fr 1fr; /* Creates 3 columns: left and right take equal space, middle takes double. */
+    grid-template-rows: auto auto; /* Creates 2 rows, both height adjusting automatically to content. */
+    gap: 20px; /* Adds 20px spacing between grid items (rows and columns). */
+    align-items: center; /* Vertically centers items inside each grid cell. */
+    justify-items: center; /* Horizontally centers items inside each grid cell. */
+    max-width: 1100px; /* Limits the container’s width to 1100px, preventing it from stretching too wide. */
+    margin: auto; /*Centers the container itself horizontally inside the parent section.*/
+}
+.about-text {
+    grid-column: 2; /* Places this box in the middle column of the grid layout. */
+    background: #fff; /* Sets the background of the text box to white. */
+    padding: 20px; /* Adds 20px space inside the text box around the text. */
+    border-radius: 10px; /* Rounds the corners of the text box by 10px. */
+    box-shadow: 0 6px 14px rgba(0,0,0,0.1); /* Adds a soft shadow to lift the box off the background. */
+    font-size: 18px; /* Makes the text inside the box 18px in size. */
+    line-height: 1.6; /* Increases line spacing for better readability. */
+    color: #555; /* Sets the text color to medium gray for easy reading. */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smoothly animates scaling and shadow changes on hover. */
+    cursor: pointer; /* Changes the cursor to a pointer (hand icon) when hovering over the box. */
+}
+.about-text:hover {
+    transform: scale(1.05); /* Slightly enlarges the box (5% bigger) on hover. */
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2); /* Makes the shadow larger and darker when hovered. */
+}
+.side-video {
+    width: 100%; /* Makes the video take full width of its container cell. */
+    max-width: 250px; /* Limits the video width to 250px so it doesn’t grow too large. */
+    border-radius: 10px; /* Rounds the corners of the video. */
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15); /* Adds a small shadow to the video for depth. */
+    object-fit: cover; /* Ensures the video fills its box without stretching (cropping instead if needed). */
+}
+.main-video {
+    grid-column: 2; /* Places this video in the middle column of the grid. */
+    width: 100%; /* Makes it stretch to fill the available width of its grid cell. */
+    max-width: 500px; /* Limits its maximum width to 500px so it doesn’t become too wide. */
+    border-radius: 10px; /* Rounds the corners of the video. */
+    margin-top: 20px; /* Adds 20px space above the main video. */
+    box-shadow: 0 6px 16px rgba(0,0,0,0.2);  /* Adds a stronger shadow to make the main video stand out. */
+    object-fit: cover; /* Ensures the video fills its area neatly without distortion. */
+}
+/********************************Special Menu Section************************************/
+.specials{
+    padding: 60px 40px;/* Adds 60px top/bottom and 40px left/right space inside the section. */
+    text-align: center;/* Centers all text inside the specials section. */
+}
+.specials-container{
+    display: flex;/* Uses flexbox to arrange cards side by side. */
+    justify-content: center;/* Horizontally centers the cards inside the container. */
+    gap: 30px;/* Adds 30px space between each card. */
+    flex-wrap: wrap;/* Allows cards to wrap onto a new line if screen is too small. */
+}
+.card{
+    background-color: #fff;/* Sets card background color to white. */
+    border-radius: 10px;/* Rounds the card’s corners by 10px. */
+    padding: 20px;/* Adds 20px space inside the card around its content. */
+    width: 250px;/* Fixes each card’s width to 300px. */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);/* Adds a darker shadow to make the card pop from the background. */
+    transition: transform 0.3s ease;/* Smoothly animates the transform property (used on hover). */
+}
+.card:hover{
+    transform: translateY(-13px);/* Moves the card upward by 13px to create a lift effect. */
+}
+.card img{
+    width: 100%;/* Makes the image fill the full width of the card. */
+    border-radius: 10px;/* Rounds the image corners to match the card’s rounded edges. */
+    margin-bottom: 15px;/* Adds 15px space below the image before the text. */
+}
+.card h3{
+    font-size: 22px;/* Makes the title text 22px in size. */
+    margin-bottom: 10px;/* Adds 10px space below the title before the paragraph. */
+}
+.card p{
+    font-size: 16px;/* Sets description text size to 16px. */
+    color: #555;/* Colors the text a medium gray for readability. */
+    margin-bottom: 10px;/* Adds 10px space below the description. */
+}
+.price{
+    font-size: 18px;/* Makes the price text a bit larger (18px). */
+    font-weight: bold;/* Makes the price text bold for emphasis. */
+    color: #f4b400;/* Colors the price golden to highlight it. */
+}
+/********************************Customer Review******************************************/
+.testimonials{
+    padding: 60px 40px;/* Adds 60px space top/bottom and 40px left/right inside the section. */
+    text-align: center;/* Centers all text within the testimonials section. */
+    background-color: #f9f9f9;/* Gives the section a light gray background color. */
+}
+.testimonials-container{
+    display: flex;/* Uses flexbox to lay out testimonial cards in a row. */
+    justify-content: center;/*Centers the row of cards horizontally within the container.*/
+    gap: 30px;/* Adds 30px space between each testimonial card. */
+    flex-wrap: wrap;/* Allows testimonial cards to wrap onto a new line on smaller screens. */
+}
+.testimonial{
+    background-color: #fff;/* Sets the card background to white. */
+    border-radius: 10px;/* Rounds the card corners by 10px. */
+    padding: 20px;/* Adds 20px space inside the card around its content. */
+    width: 300px;/* Fixes the card width to 300px. */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);/* Adds a soft shadow to lift the card slightly off the background. */
+    font-style: italic;/* Makes the testimonial text italic to differentiate quotes. */
+}
+.testimonial h4{
+    margin-top: 15px;/* Adds 15px space above the author’s name (separates it from the quote). */
+    font-weight: bold;/* Makes the name text bold to stand out. */
+    color: #f4b400;/* Colors the name golden to match the theme. */
+}
+/************************************Footer*******************************************/
+footer{
+    background-color: #222;/* Sets a very dark gray background for the footer. */
+    color: #fff;/* Makes the default text color inside the footer white for contrast. */
+    padding: 40px 20px;/* Adds 40px padding top and bottom, 20px left and right inside the footer. */
+    text-align: center;/* Centers inline content horizontally inside the footer. */
+}
+.footer-container{
+    display: flex;/* Lays out the footer columns/items using flexbox. */
+    justify-content: space-around;/* Distributes space so items are spaced evenly with space around them. */
+    flex-wrap: wrap;/*Allows the flex items to wrap to the next line on smaller screens. */
+    gap: 30px;/* Adds 30px gap between flex items (works like margin between items). */
+}
+.footer-container div{
+    max-width: 250px;/* Limits each column block to 250px so columns don’t get too wide. */
+}
+.footer-container h3{
+    margin-bottom: 15px;/* Adds 15px space below each h3 to separate it from following content. */
+    color: #f4b400;/* Colors the headings a golden accent color to match the site theme. */
+}
+.footer-container p,
+.footer-container a{
+    font-size: 14px;/* Sets a smaller, readable font size for footer text and links. */
+    color: #ddd;/* Gives the text a light gray color that is softer than pure white. */
+    text-decoration: none;/* Removes underlines from links so they look cleaner. */
+}
+.footer-container a:hover{
+    color: #f4b400;/* Changes link color to golden on hover as a visual affordance. */
+}
+.footer-bottom{
+    margin-top: 20px;/* Adds 20px space above the footer-bottom to separate it from other footer content. */
+    font-size: 13px;/* Uses a smaller font size for secondary information. */
+    color: #aaa;/* Uses a muted gray color so this text is less prominent. */
+}
+footer a {
+  color: #ddd;/* Sets default link color in the footer to the same light gray used elsewhere. */
+  transition: color 0.3s;/* Smoothly animates color changes on links over 0.3 seconds. */
+}
+footer a:hover {
+  color: #f4b400;/* Changes hovered link color to the golden accent color. */
+}
+/************************************ Menu Page ******************************************/
+body.menu-page {
+  background-color: #fdf6e3;
+  color: #222;
+}
+.container{
+    width: min(1100px,92%); 
+    margin: 0 auto;
+}
+.menu-header{
+    padding: 48px 0;
+    text-align: center;
+    background: #fafafa;
+}
+.menu-header h1{
+    margin: 0 0 6px;
+    font-size: 2rem;
+}
+.menu-header p{
+    margin: 0;
+    color: #666;
+}
+.content-with-aside{
+    display: grid;
+    grid-template-columns: 1fr 320px;
+    gap: 28px;
+    align-items: start;
+    padding: 40px 0;
+}
+.menu-catagories{
+    display: flex;
+    gap: 12px;
+    margin-bottom: 18px;
+    flex-wrap: wrap;
+}
+.menu-catagories a{
+    padding: 8px 14px;
+    border-radius: 999px;
+    background: #f3f3f3;
+    color: #333;
+    text-decoration: none;
+}
+.menu-catagories a:hover{
+    background: #f4b400;
+    color: #111;
+}
+.menu-section{
+    margin-bottom: 40px;
+}
+.menu-section h2{
+    display: inline-block;
+    margin-bottom: 18px;
+    position: relative;
+}
+.menu-section h2::after{
+    content: "";
+    display: block;
+    height: 3px;
+    width: 50%;
+    background-color: #f4b400;
+    margin-top: 10px;
+    border-radius: 2px;
+}
+.menu-grid{
+    display: grid;
+    grid-template-columns: repeat(2,minmax(0,1fr));
+    gap: 18px;
+}
+.dish-card{
+    display: flex;
+    gap: 14px;
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 12px;
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+    transition: transform 0.3s ease;
+    cursor: pointer;
+}
+.dish-card:hover {
+  transform: scale(1.05);
+}
+.dish-card img{
+    width: 110px;
+    height: 90px;
+    object-fit: cover;
+    padding: 12px;
+    transition: transform 0.3s ease;
+}
+.dish-card:hover img {
+  transform: scale(1.1);
+}
+.dish-info h3{
+    margin: 0 0 6px;
+    font-size: 1rem;
+}
+.dish-info p{
+    margin: 0 0 8px;
+    color: #666;
+    font-size: 0.95rem;
+}
+.aside-column{
+    flex: 1;
+    max-width: 300px;
+    margin-left: 20px;
+}
+.aside-card{
+    position: sticky;
+    top: 18px;
+    background: linear-gradient(135deg, #fff, #fef5e7);;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 6px 14px rgba(0,0,0,0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.aside-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 22px rgba(0,0,0,0.15);
+}
+.aside-card h3{
+    font-size: 20px;
+    color: #f4b400;
+    margin-bottom: 15px;
+    border-bottom: 2px solid #f4b400;
+    padding-bottom: 6px;
+    font-weight: bold;
+}
+.aside-card .muted{
+    color: #888;
+    font-size: 14px;
+    margin-bottom: 10px;
+    font-style: italic;
+}
+.order-list li{
+    padding: 8px 0;
+    border-bottom: 1px dashed #ddd;
+    font-size: 15px;
+    color: #333;
+}
+.order-list li:last-child{
+    border-bottom: none;
+    color: #aaa;
+    text-align: center;
+    font-style: italic;
+}
+.subtotal{
+    margin-top: 10px;
+    font-size: 16px;
+    color: #444;
+}
+.subtotal strong{
+    color: #000;
+    font-weight: bold;
+}
+.aside-card a {
+  display: block;
+  margin-top: 15px;
+  text-align: center;
+  background: #f4b400;
+  color: #fff;
+  font-size: 16px;
+  padding: 12px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+.aside-card a:hover {
+  background: #d89c00;
+  transform: scale(1.05);
+}
+/********************************* Contact Page ******************************************/
+.contact {
+    padding: 60px 40px;
+    background-color: #f9f9f9;
+    text-align: center;
+}
+.contact h2 {
+    font-size: 32px;
+    margin-bottom: 40px;
+    color: #222;
+    position: relative;
+}
+.contact h2::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: -10px;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 4px;
+    background-color: #f4b400;
+    border-radius: 2px;
+}
+.contact-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 40px;
+    max-width: 1100px;
+    margin: auto;
+    flex-wrap: wrap;
+}
+.contact-form, .contact-info {
+    flex: 1;
+    min-width: 300px;
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 6px 14px rgba(0,0,0,0.1);
+}
+.contact-form form label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+.contact-form form input,
+.contact-form form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+}
+.contact-form form button {
+    background-color: #f4b400;
+    color: #222;
+    padding: 10px 20px;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+.contact-form form button:hover {
+    background-color: #222;
+    color: #f4b400;
+}
+.contact-info .info-item {
+    margin-bottom: 20px;
+}
+.contact-info .info-item h4 {
+    font-size: 18px;
+    margin-bottom: 5px;
+    color: #222;
+}
+.contact-info .info-item p {
+    font-size: 16px;
+    color: #555;
+}
