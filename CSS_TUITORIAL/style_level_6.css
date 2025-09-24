@@ -1,0 +1,34 @@
+body{
+    text-align: center;
+}
+div{
+    height: 100px;
+    width: 100px;
+    display: inline-block;
+    border: 2px solid black;
+}
+#container{
+    width: 800px;
+    height: 200px;
+    display: flex;/*It's like a button, means when we add this line we can apply flex property.*/
+    flex-direction: row-reverse;/*right to left*/
+    /*  flex-direction: row -- left to right
+        flex-direction: column -- top to buttom
+        flex-direction: column-reverse -- buttom to top
+    */
+}
+#box1{
+    background-color: aqua;
+}
+#box2{
+    background-color: pink;
+}
+#box3{
+    background-color: darkkhaki;
+}
+#box4{
+    background-color: slateblue;
+}
+#box5{
+    background-color: blueviolet;
+}
