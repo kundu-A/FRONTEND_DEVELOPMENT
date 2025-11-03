@@ -4,8 +4,30 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chat Application</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    
+    <header class="main-header">
+        <div class="left-header">
+            <img src="images/meetme.png" alt="App logo" class="app-logo">
+        </div>
+        <div class="right-header">
+            <button id="auth-btn">Sign-In/Sign-Up</button>
+        </div>
+    </header>
+    <main class="main-container">
+        <div class="overlay">
+            <div class="welcome-box">
+                <h1>Welcome to Chat Connect</h1>
+                <p>Connect instantly with your friends and colleagues.</p>
+                <button class="chat-btn" onclick="window.location.href='chat.html'">
+                    Start Chatting
+                </button>
+            </div>
+        </div>
+    </main>
+    <footer class="main-footer">
+        <p>&copy; 2025 Chat Connect. All rights reserved</p>
+    </footer>
 </body>
 </html>
