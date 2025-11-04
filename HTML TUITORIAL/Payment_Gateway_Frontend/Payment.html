@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RazorPay Payment</title>
+</head>
+<body>
+    <h2>Enter Amount</h1>
+        <input type="number" id="Amount" placeholder="Enter Amount in INR">
+        <button id="PayButton">Pay</button>
+
+        <!-- Razorpay Script -->
+  <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+  <script>
+    document.getElementById('payButton').onclick = function(e){
+      var amount = document.getElementById('amount').value * 100; // Razorpay uses paise
+      if (!amount || amount <= 0) {
+        alert("Please enter a valid amount");
+        return;
+      }
+
+      var options = {
+        "key": "rzp_test_QFBWWWcFBbgcMI", // Replace with your Razorpay key ID
+        "amount": amount,
+        "currency": "INR",
+        "name": "Your Company Name",
+        "description": "Test Transaction",
+        "handler": function (response){
+            alert("Payment successful! Payment ID: " + response.razorpay_payment_id);
+        },
+        "prefill": {
+            "name": "Test User",
+            "email": "test@example.com"
+        },
+        "theme": {
+            "color": "#3399cc"
+        }
+      };
+
+      var rzp = new Razorpay(options);
+      rzp.open();
+      e.preventDefault();
+    }
+  </script>
+</body>
+</html>
